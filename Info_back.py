@@ -6,12 +6,14 @@ def Personal_Information():
     cur.execute("create table if not exists personal_info(id integer primary key,fullname text,address text,email text,dob text,gender text,contact text)")
     conn.commit()
     conn.close()
+    
 def add_personal_information(fullname,address,email,dob,gender,contact):
     conn=sqlite3.connect("personal_information")
     cur=conn.cursor()
     cur.execute("insert into personal_info values(null,?,?,?,?,?,?)",(fullname,address,email,dob,gender,contact))
     conn.commit()
     conn.close()
+    
 def view_personal_information():
     conn=sqlite3.connect("personal_information")
     cur=conn.cursor()
